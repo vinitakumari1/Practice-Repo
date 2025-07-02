@@ -1,0 +1,26 @@
+[
+    {
+        "id": 2,
+        "bookname": "smal kids tales",
+        "quantity": 10,
+        "author": "bannerjee"
+    },
+    {
+        "id": 1,
+        "bookname": "How to do",
+        "quantity": 5,
+        "author": "bannerjee"
+    },
+    {
+        "id": 4,
+        "bookname": "How to do",
+        "quantity": 5,
+        "author": "bannerjee"
+    },
+    {
+        "id": 6,
+        "bookname": "How to do",
+        "quantity": 5,
+        "author": "bannerjee"
+    }
+]

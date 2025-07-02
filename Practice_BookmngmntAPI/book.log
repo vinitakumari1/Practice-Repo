@@ -1,0 +1,112 @@
+2025-06-28 13:28:24,968 - INFO - App health check successful
+2025-06-28 13:28:29,988 - INFO - Loaded books from JSON.
+2025-06-28 13:28:29,988 - INFO - All the books fetched from json
+2025-06-28 13:30:12,211 - INFO - Loaded books from JSON.
+2025-06-28 13:31:11,825 - INFO - Loaded books from JSON.
+2025-06-28 13:35:47,522 - INFO - Loaded books from JSON.
+2025-06-28 13:36:17,039 - INFO - Loaded books from JSON.
+2025-06-28 13:36:17,039 - INFO - Fetching total number of books
+2025-06-28 15:58:43,086 - INFO - Loaded books from JSON.
+2025-06-28 15:58:43,087 - INFO - Saved books to JSON.
+2025-06-28 15:58:43,088 - INFO - Book with 3 is deleted
+2025-06-28 16:00:02,346 - INFO - Loaded books from JSON.
+2025-06-28 16:00:12,580 - INFO - Loaded books from JSON.
+2025-06-28 16:00:12,581 - INFO - Saved books to JSON.
+2025-06-28 16:00:12,582 - INFO - Book with 1 is deleted
+2025-06-28 16:01:47,532 - INFO - Loaded books from JSON.
+2025-06-28 16:01:47,533 - INFO - Saved books to JSON.
+2025-06-28 16:01:47,534 - INFO - Book with 2 is deleted
+2025-06-28 16:03:06,503 - INFO - Loaded books from JSON.
+2025-06-28 16:03:06,509 - INFO - Saved books to JSON.
+2025-06-28 16:03:06,509 - INFO - Book added: Clean Code
+2025-06-28 16:03:31,153 - INFO - Loaded books from JSON.
+2025-06-28 16:03:31,154 - INFO - Saved books to JSON.
+2025-06-28 16:03:31,154 - INFO - Book added: How to do
+2025-06-28 16:03:59,337 - INFO - Loaded books from JSON.
+2025-06-28 16:04:15,435 - INFO - Loaded books from JSON.
+2025-06-28 16:04:15,436 - INFO - Saved books to JSON.
+2025-06-28 16:04:15,437 - INFO - Book added: smal kids tales
+2025-06-28 16:05:23,537 - INFO - Loaded books from JSON.
+2025-06-28 16:05:23,537 - INFO - Saved books to JSON.
+2025-06-28 16:05:23,537 - INFO - Book with 2 is deleted
+2025-06-29 10:19:17,922 - INFO - Loaded books from JSON.
+2025-06-29 10:19:31,450 - INFO - Loaded books from JSON.
+2025-06-29 10:19:31,450 - INFO - Saved books to JSON.
+2025-06-29 10:19:31,451 - INFO - Book with 1 is deleted
+2025-06-29 10:22:18,005 - INFO - Loaded books from JSON.
+2025-06-29 10:22:18,006 - INFO - Saved books to JSON.
+2025-06-29 10:22:18,006 - INFO - Book with 3 is deleted
+2025-06-29 10:24:45,912 - INFO - Loaded books from JSON.
+2025-06-29 10:24:45,913 - INFO - Saved books to JSON.
+2025-06-29 10:24:45,914 - INFO - Book added: smal kids tales
+2025-06-29 10:25:02,987 - INFO - Loaded books from JSON.
+2025-06-29 10:25:02,989 - INFO - Saved books to JSON.
+2025-06-29 10:25:02,989 - INFO - Book added: How to do
+2025-06-29 10:25:08,408 - INFO - Loaded books from JSON.
+2025-06-29 10:25:08,409 - INFO - Saved books to JSON.
+2025-06-29 10:25:08,409 - INFO - Book added: How to do
+2025-06-29 10:25:14,421 - INFO - Loaded books from JSON.
+2025-06-29 10:25:14,422 - INFO - Saved books to JSON.
+2025-06-29 10:25:14,422 - INFO - Book added: How to do
+2025-06-29 10:25:19,473 - INFO - Loaded books from JSON.
+2025-06-29 10:25:19,473 - INFO - Saved books to JSON.
+2025-06-29 10:25:19,473 - INFO - Book added: How to do
+2025-06-29 10:25:24,070 - INFO - Loaded books from JSON.
+2025-06-29 10:25:30,570 - INFO - Loaded books from JSON.
+2025-06-29 10:25:30,571 - INFO - Saved books to JSON.
+2025-06-29 10:25:30,571 - INFO - Book added: How to do
+2025-06-29 10:25:38,844 - INFO - Loaded books from JSON.
+2025-06-29 10:25:38,845 - INFO - All the books fetched from json
+2025-06-29 10:25:50,046 - INFO - Loaded books from JSON.
+2025-06-29 10:25:50,047 - INFO - Saved books to JSON.
+2025-06-29 10:25:50,047 - INFO - Book with 3 is deleted
+2025-06-30 10:40:08,600 - INFO - Loaded books from JSON.
+2025-06-30 10:40:35,425 - INFO - Loaded books from JSON.
+2025-06-30 10:40:47,596 - INFO - Loaded books from JSON.
+2025-06-30 10:40:47,596 - INFO - All the books fetched from json
+2025-06-30 10:42:59,295 - INFO - Loaded books from JSON.
+2025-06-30 10:43:02,027 - INFO - Loaded books from JSON.
+2025-06-30 11:43:34,188 - INFO - Loaded books from JSON.
+2025-06-30 11:43:34,189 - INFO - Searching for book with book id 1
+2025-06-30 11:44:17,092 - INFO - Loaded books from JSON.
+2025-06-30 11:44:17,092 - INFO - Searching for book with book id 1
+2025-06-30 11:46:13,745 - INFO - Loaded books from JSON.
+2025-06-30 11:46:13,746 - INFO - Searching for book with book id 1
+2025-06-30 11:46:24,682 - INFO - Loaded books from JSON.
+2025-06-30 11:46:24,682 - INFO - Searching for book with book id 1
+2025-06-30 11:50:07,837 - INFO - App health check successful
+2025-06-30 11:50:14,835 - INFO - App health check successful
+2025-06-30 11:50:31,358 - INFO - Loaded books from JSON.
+2025-06-30 11:50:31,358 - INFO - All the books fetched from json
+2025-06-30 11:50:56,581 - INFO - Loaded books from JSON.
+2025-06-30 11:50:56,581 - INFO - Fetching total number of books
+2025-06-30 11:57:25,078 - INFO - Loaded books from JSON.
+2025-06-30 11:59:47,648 - INFO - Loaded books from JSON.
+2025-06-30 11:59:49,273 - INFO - Loaded books from JSON.
+2025-06-30 12:02:18,709 - INFO - Loaded books from JSON.
+2025-06-30 12:04:38,089 - INFO - Loaded books from JSON.
+2025-06-30 12:04:41,570 - INFO - Loaded books from JSON.
+2025-06-30 12:06:25,861 - INFO - Loaded books from JSON.
+2025-06-30 12:07:43,244 - INFO - Loaded books from JSON.
+2025-06-30 12:07:45,652 - INFO - Loaded books from JSON.
+2025-06-30 12:08:22,371 - INFO - Loaded books from JSON.
+2025-06-30 12:09:16,361 - INFO - Loaded books from JSON.
+2025-06-30 12:09:18,714 - INFO - Loaded books from JSON.
+2025-06-30 12:09:38,666 - INFO - Loaded books from JSON.
+2025-06-30 12:11:25,811 - INFO - Loaded books from JSON.
+2025-06-30 12:11:27,824 - INFO - Loaded books from JSON.
+2025-06-30 12:11:47,327 - INFO - Loaded books from JSON.
+2025-06-30 12:14:16,848 - INFO - Loaded books from JSON.
+2025-06-30 12:15:14,744 - INFO - Loaded books from JSON.
+2025-06-30 12:15:14,744 - INFO - Saved books to JSON.
+2025-06-30 12:15:14,745 - INFO - Book with 10 is deleted
+2025-06-30 12:15:32,974 - INFO - Loaded books from JSON.
+2025-06-30 12:15:49,903 - INFO - Loaded books from JSON.
+2025-06-30 12:15:49,903 - INFO - Book with 5 not found
+2025-06-30 12:15:56,792 - INFO - Loaded books from JSON.
+2025-06-30 12:15:56,792 - INFO - Searching for book with book id 1
+2025-06-30 12:20:12,534 - INFO - App health check successful
+2025-06-30 12:20:39,917 - INFO - App health check successful
+2025-06-30 12:22:08,087 - INFO - App health check successful
+2025-06-30 12:22:21,657 - INFO - Loaded books from JSON.
+2025-06-30 12:22:21,657 - INFO - All the books fetched from json
