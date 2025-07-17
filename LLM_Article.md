@@ -1,5 +1,5 @@
-Masterclass: GPT-2/4 — Tokens, Embeddings, Vector Search, FAISS, MongoDB & FastAPI
-Welcome to the ultimate guide to building LLM applications using:
+**Masterclass: GPT-2/4 — Tokens, Embeddings, Vector Search, FAISS, MongoDB & FastAPI
+Welcome to the ultimate guide to building LLM applications using**
 
 1. GPT-2/GPT-4
 
@@ -9,9 +9,9 @@ Welcome to the ultimate guide to building LLM applications using:
 
 4. FastAPI
 
-Whether you're building a resume QnA bot, a chatbot, or a semantic search engine, this masterclass connects the dots from theory to implementation.
+# Whether you're building a resume QnA bot, a chatbot, or a semantic search engine, this masterclass connects the dots from theory to implementation.
 
-Table of Contents
+**Table of Contents**
 
 1. Understanding Tokens in GPT
 
@@ -30,7 +30,7 @@ Table of Contents
 8. Conclusion: How it all connects
 
 
-1. Understanding tokens in GPT
+**1. Understanding tokens in GPT**
 
     Tokens are the smallest meaningful units of text that an AI model works with.It can be a word, a part of a word (like a subword or syllable), or even a single character. Tokenization, the process of converting text into these units, is crucial for enabling AI to understand, analyze, and generate human language. 
 
@@ -53,11 +53,14 @@ Table of Contents
 
     3. Performance: More tokens = more compute time.
 
-2. Embeddings : The brain of Semantic Search
+**2. Embeddings : The brain of Semantic Search**
+
     Embeddings are numerical representations of text capturing meaning.
 
+   ```python
     from openai import OpenAI
     openai.embeddings.create(model="text-embedding-3-small", input="What is FastAPI?")
+   ```
 
 
 
