@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "cbcd0894-56b9-46a2-a04d-0ec8568f5ec9",
+		"name": "resumeqna",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44765618"
+	},
+	"item": [
+		{
+			"name": "health_check",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ask_question",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

@@ -15,7 +15,7 @@ Welcome to an end-to-end guide on building a **Chat with PDF** application using
 7. [Index all resumes](#index-all-resumes)  
 8. [Search and query](#search-and-query)  
 9. [CLI entry point](#cli-entry-point)  
-10. [FastAPI Endpoint (Optional Add-on)](#fastapi-endpoint-optional-add-on)
+10. [FastAPI Endpoint (Optional Add-on)](#fastapi-endpoint)
 
 
 ---
