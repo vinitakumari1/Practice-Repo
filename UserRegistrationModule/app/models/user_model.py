@@ -33,3 +33,19 @@ class UserLogin(BaseModel):
     password: str  # No custom rules for login (just match)
 
 
+class ChangePassword(BaseModel):
+    old_password: str
+    new_password: Annotated[str, str]
+
+    @field_validator("new_password")
+    def validate_new_password(cls, value):
+        return validate_password_rules(value)
+
+
+class ForgetPassword(BaseModel):
+    email: EmailStr
+    new_password: Annotated[str, str]
+
+    @field_validator("new_password")
+    def validate_forgotten_password(cls, value):
+        return validate_password_rules(value)
