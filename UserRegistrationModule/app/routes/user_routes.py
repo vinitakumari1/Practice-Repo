@@ -1,50 +1,63 @@
-from fastapi import APIRouter, HTTPException, Request, status
-from app.models.user_model import UserRegister, UserLogin, ChangePassword, ForgetPassword
-from app.utils.auth import hash_password, verify_password
+import os
+from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi.security import OAuth2PasswordBearer
+from app.models.user_model import ChangeDetails, ChangePassword, ForgetPassword, UserRegister, UserLogin
+from app.utils.auth import hash_mobile_number, hash_password, verify_password, create_access_token, verify_token
 from app.database.mongo import users
-from datetime import datetime, timezone
-from bson.objectid import ObjectId
+from datetime import datetime, timedelta, timezone
+from bson import ObjectId
+from openai import OpenAI
+
+
+
+
+
 
 
 router = APIRouter()
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-session_store = {}
-
-# Simple GET route to verify the API is working.
 @router.get("/health")
 async def health_check():
-    return {"message":"app is running healthy"}
+    return {"message": "App is running Healthy"}
 
 @router.post("/register")
 async def register(user: UserRegister):
-# Simple GET route to verify the API is working.
-    existing_user = users.find_one({"email": user.email}) # Checks if the user already exists in the DB by email.
+    existing_user = users.find_one({"email": user.email})
     if existing_user:
-        raise HTTPException(status_code=400, detail="Email already registered") # If user exists, raise an error.
-    hashed_pwd = hash_password(user.password) #Hashes the user's password before saving.
-    users.insert_one({**user.model_dump(exclude={"password"}), "password": hashed_pwd, "password_history": [hashed_pwd], "change_count": []}) #Saves user data to MongoDB, excluding the plain password.
-    return {"message": "User registered successfully"}
+        raise HTTPException(status_code=400, detail="Email already registered")
+    
+
+    hashed_pwd = hash_password(user.password)
+    password_quality_suggestion = explain_password_strength(user.password)
+    users.insert_one({
+        **user.model_dump(exclude={"password"}),
+        "password": hashed_pwd,
+        "password_history": [hashed_pwd],
+        "change_count": []
+    })
+    return {"message": "User registered successfully",
+            
+            }
 
 @router.post("/login")
-async def login(user: UserLogin, request: Request):
-    user_data = users.find_one({"email": user.email})
-    if not user_data or not verify_password(user.password, user_data["password"]):
-        raise HTTPException(status_code=401, detail="Invalid credentials")
-    session_store[user.email] = True
-    
-    return {"message": "Logged in successfully", "user": user.email}
-
+async def login(user: UserLogin):
+    db_user = users.find_one({"email": user.email})
+    if not db_user or not verify_password(user.password, db_user["password"]):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
+    token = create_access_token({"sub": str(db_user["_id"])}, timedelta(minutes=30))
+    return {"access_token": token, "token_type": "bearer"}
 
 @router.post("/change-password")
-async def change_password(data: ChangePassword, request: Request):
-    email = request.headers.get("X-User-Email") #Gets email from request headers (acts as session/user identity).
-    if not email or email not in session_store:
-        raise HTTPException(status_code=403, detail="Not logged in")
-    user = users.find_one({"email": email})
+async def change_password(data: ChangePassword, token: str = Depends(oauth2_scheme)):
+    user_data = verify_token(token)
+    user_id = user_data.get("sub")
+    user = users.find_one({"_id": ObjectId(user_id)})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
     if not verify_password(data.old_password, user["password"]):
         raise HTTPException(status_code=400, detail="Old password is incorrect")
 
-    
     today = datetime.now(timezone.utc).date()
     changes_today = [d for d in user["change_count"] if datetime.fromisoformat(d).date() == today]
     if len(changes_today) >= 3:
@@ -55,7 +68,7 @@ async def change_password(data: ChangePassword, request: Request):
 
     hashed_new = hash_password(data.new_password)
     users.update_one(
-        {"email": email},
+        {"_id": ObjectId(user_id)},
         {"$set": {"password": hashed_new},
          "$push": {"password_history": hashed_new, "change_count": [datetime.now(timezone.utc).isoformat()]}}
     )
@@ -69,13 +82,18 @@ async def forget_password(data: ForgetPassword):
     hashed_new = hash_password(data.new_password)
     users.update_one(
         {"email": data.email},
-        {"$set": {"password": hashed_new}, "$push": {"password_history": hashed_new, "change_count": [datetime.now(timezone.utc).isoformat()]}}
+        {"$set": {"password": hashed_new},
+         "$push": {"password_history": hashed_new, 
+                   "change_count": [datetime.now(timezone.utc).isoformat()]
+                   }
+         }
     )
     return {"message": "Password reset successfully"}
 
+
+
+
 @router.post("/logout")
-async def logout(request: Request):
-    email = request.headers.get("X-User-Email")
-    if email in session_store:
-        del session_store[email]
-    return {"message": "User logged out"}
+async def logout():
+    return {"message": "Logout by discarding token on client side"}
+
