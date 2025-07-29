@@ -1,4 +1,3 @@
-from passlib.context import CryptContext  # #This initializes a CryptContext with bcrypt as the hashing algorithm.
 from datetime import datetime, timedelta
 from passlib.context import CryptContext  #This initializes a CryptContext with bcrypt as the hashing algorithm.
 import jwt
@@ -12,16 +11,14 @@ SECRET_KEY = "YOUR_SECRET_KEY"  # change this to a strong random value
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-
-                                                 
-
 def hash_password(password: str): # Takes a plain password and returns a bcrypt hashed version.
     return pwd_context.hash(password) #Use this when storing passwords in a database.
 
 def verify_password(plain_password, hashed_password): # Checks whether a plain password matches the stored hashed password.
     return pwd_context.verify(plain_password, hashed_password) # Returns True if they match, False otherwise.
 
-
+def hash_mobile_number(mobile_number:str):
+    return pwd_context.hash(mobile_number)
 
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
@@ -41,3 +38,4 @@ def verify_token(token: str):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token expired")
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
+

@@ -22,6 +22,7 @@ class UserRegister(BaseModel):
     email: EmailStr
     full_name: str
     password: Annotated[str, str]
+    mobile_number:str
 
     @field_validator("password")
     def validate_password(cls, value):
@@ -49,3 +50,7 @@ class ForgetPassword(BaseModel):
     @field_validator("new_password")
     def validate_forgotten_password(cls, value):
         return validate_password_rules(value)
+    
+class ChangeDetails(BaseModel):
+    old_mobile_number:str
+    new_mobile_number:str
