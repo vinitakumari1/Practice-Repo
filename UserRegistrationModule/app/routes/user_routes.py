@@ -1,5 +1,5 @@
 import os
-from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi import APIRouter, HTTPException, status, Depends,Request, Depends
 from fastapi.security import OAuth2PasswordBearer
 from app.models.user_model import ChangeDetails, ChangePassword, ForgetPassword, UserRegister, UserLogin
 from app.utils.auth import hash_mobile_number, hash_password, verify_password, create_access_token, verify_token
@@ -7,6 +7,11 @@ from app.database.mongo import users
 from datetime import datetime, timedelta, timezone
 from bson import ObjectId
 from openai import OpenAI
+from app.utils.blacklist import add_to_blacklist
+
+
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 from app.utils.gpt_utils import explain_password_strength
 
@@ -107,11 +112,6 @@ async def change_details(data: ChangeDetails, token: str = Depends(oauth2_scheme
 
     return {"message": "Mobile number updated successfully", "new_mobile_number": data.new_mobile_number}
 
-
-@router.post("/logout")
-async def logout():
-    return {"message": "Logout by discarding token on client side"}
-
 @router.get("/profile")
 async def get_profile(token: str = Depends(oauth2_scheme)):
     user_data = verify_token(token)
@@ -120,3 +120,11 @@ async def get_profile(token: str = Depends(oauth2_scheme)):
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
     return {"email": user["email"]}
+
+
+@router.post("/logout")
+async def logout(token: str = Depends(oauth2_scheme)):
+    add_to_blacklist(token)
+    return {"message": "Logged out successfully and token blacklisted"}
+
+

@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from passlib.context import CryptContext  #This initializes a CryptContext with bcrypt as the hashing algorithm.
 import jwt
 from fastapi import HTTPException, status
+from app.utils.blacklist import is_token_blacklisted  # Import the function
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto") # "deprecated='auto'" allows automatic migration if you later change the hashing scheme.
@@ -31,11 +32,16 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 def verify_token(token: str):
+    if is_token_blacklisted(token):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token has been revoked")
+
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         return payload
     except jwt.ExpiredSignatureError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token expired")
-    except jwt.InvalidTokenError:
+    except jwt.JWTError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
+
+
 
