@@ -2,11 +2,11 @@ import requests
 import os
 import json
 
-API_KEY = os.getenv("WEATHER_API_KEY")  # make sure this is set
+API_KEY = os.getenv("WEATHER_API_KEY")  
 OUTPUT_FILE = "weather_report.json"
 
 def get_weather_report(city, api_key):
-    """Fetch 5-day / 3-hour weather forecast for one city"""
+    """Fetch 1-day / 3-hour weather forecast for one city"""
     url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={api_key}"
     response = requests.get(url)
 
@@ -33,7 +33,8 @@ def save_to_json(data, filename):
         json.dump(data, f, indent=2)
 
 if __name__ == "__main__":
-    cities = ["London", "Paris", "New York", "Mumbai", "Tokyo"]
+    cities = ["London", "Paris", "New York", "Mumbai", "Tokyo","New Delhi","Bangalore",
+              "Guwahati","Kolkata","Chennai"]
     all_weather = []
 
     for city in cities:
