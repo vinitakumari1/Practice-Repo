@@ -1,0 +1,227 @@
+[
+  {
+    "city": "London",
+    "forecasts": [
+      {
+        "time": "2025-08-19 12:00:00",
+        "temperature": 21.4,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-19 15:00:00",
+        "temperature": 21.72,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-19 18:00:00",
+        "temperature": 20.79,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-19 21:00:00",
+        "temperature": 18.4,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-20 00:00:00",
+        "temperature": 17.1,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-20 03:00:00",
+        "temperature": 16.42,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-20 06:00:00",
+        "temperature": 16.15,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-20 09:00:00",
+        "temperature": 18.41,
+        "description": "overcast clouds"
+      }
+    ]
+  },
+  {
+    "city": "Paris",
+    "forecasts": [
+      {
+        "time": "2025-08-19 12:00:00",
+        "temperature": 26.24,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-19 15:00:00",
+        "temperature": 26.66,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-19 18:00:00",
+        "temperature": 23.19,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-19 21:00:00",
+        "temperature": 21.06,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-20 00:00:00",
+        "temperature": 20.85,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-20 03:00:00",
+        "temperature": 20.43,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-20 06:00:00",
+        "temperature": 19.48,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-20 09:00:00",
+        "temperature": 19.88,
+        "description": "light rain"
+      }
+    ]
+  },
+  {
+    "city": "New York",
+    "forecasts": [
+      {
+        "time": "2025-08-19 12:00:00",
+        "temperature": 18.12,
+        "description": "scattered clouds"
+      },
+      {
+        "time": "2025-08-19 15:00:00",
+        "temperature": 18.63,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-19 18:00:00",
+        "temperature": 19.82,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-19 21:00:00",
+        "temperature": 21.78,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-20 00:00:00",
+        "temperature": 19.9,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-20 03:00:00",
+        "temperature": 21.19,
+        "description": "few clouds"
+      },
+      {
+        "time": "2025-08-20 06:00:00",
+        "temperature": 21.42,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-20 09:00:00",
+        "temperature": 21.69,
+        "description": "overcast clouds"
+      }
+    ]
+  },
+  {
+    "city": "Mumbai",
+    "forecasts": [
+      {
+        "time": "2025-08-19 12:00:00",
+        "temperature": 26.51,
+        "description": "moderate rain"
+      },
+      {
+        "time": "2025-08-19 15:00:00",
+        "temperature": 26.45,
+        "description": "moderate rain"
+      },
+      {
+        "time": "2025-08-19 18:00:00",
+        "temperature": 26.32,
+        "description": "moderate rain"
+      },
+      {
+        "time": "2025-08-19 21:00:00",
+        "temperature": 26.07,
+        "description": "moderate rain"
+      },
+      {
+        "time": "2025-08-20 00:00:00",
+        "temperature": 26.03,
+        "description": "heavy intensity rain"
+      },
+      {
+        "time": "2025-08-20 03:00:00",
+        "temperature": 26.05,
+        "description": "heavy intensity rain"
+      },
+      {
+        "time": "2025-08-20 06:00:00",
+        "temperature": 26.14,
+        "description": "heavy intensity rain"
+      },
+      {
+        "time": "2025-08-20 09:00:00",
+        "temperature": 26.56,
+        "description": "moderate rain"
+      }
+    ]
+  },
+  {
+    "city": "Tokyo",
+    "forecasts": [
+      {
+        "time": "2025-08-19 12:00:00",
+        "temperature": 30.16,
+        "description": "clear sky"
+      },
+      {
+        "time": "2025-08-19 15:00:00",
+        "temperature": 29.42,
+        "description": "scattered clouds"
+      },
+      {
+        "time": "2025-08-19 18:00:00",
+        "temperature": 28.83,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-19 21:00:00",
+        "temperature": 27.95,
+        "description": "clear sky"
+      },
+      {
+        "time": "2025-08-20 00:00:00",
+        "temperature": 29.93,
+        "description": "few clouds"
+      },
+      {
+        "time": "2025-08-20 03:00:00",
+        "temperature": 32.87,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-20 06:00:00",
+        "temperature": 32.96,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-20 09:00:00",
+        "temperature": 32.89,
+        "description": "few clouds"
+      }
+    ]
+  }
+]

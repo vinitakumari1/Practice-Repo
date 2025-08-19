@@ -1,26 +1,46 @@
 import requests
+import os
+import json
 
+API_KEY = os.getenv("WEATHER_API_KEY")  # make sure this is set
+OUTPUT_FILE = "weather_report.json"
 
+def get_weather_report(city, api_key):
+    """Fetch 5-day / 3-hour weather forecast for one city"""
+    url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={api_key}"
+    response = requests.get(url)
 
-def get_weather_report(city,API_KEY):
-    for city in cities:
-        url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={API_KEY}"
-        response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        forecasts = []
+        for forecast in data["list"][:8]:  # next 24 hours
+            time = forecast["dt_txt"]
+            temp = forecast["main"]["temp"]
+            desc = forecast["weather"][0]["description"]
+            forecasts.append({
+                "time": time,
+                "temperature": temp,
+                "description": desc
+            })
+        return { "city": city, "forecasts": forecasts }
+    else:
+        print(f"Could not fetch weather for {city}")
+        return None
 
-        if response.status_code == 200:
-            data = response.json()
-            print(f"\n Weather Forecast for {city}\n")
-            # show next 24 hours (8 entries, 3-hour interval)
-            for forecast in data["list"][:8]:
-                time = forecast["dt_txt"]
-                temp = forecast["main"]["temp"]
-                desc = forecast["weather"][0]["description"]
-                print(f"{time} | Temp: {temp}°C | {desc}")
-        else:
-            print(f"\n Could not fetch weather for {city}")
-
+def save_to_json(data, filename):
+    """Save collected weather data to JSON file"""
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
 
 if __name__ == "__main__":
-   cities = ["London", "Paris", "New York", "Mumbai", "Tokyo"]
-   for city in cities:
-        get_weather_report(city=city,API_KEY="3747e640b1b9256cc2e4b8869262d3a3")
+    cities = ["London", "Paris", "New York", "Mumbai", "Tokyo"]
+    all_weather = []
+
+    for city in cities:
+        report = get_weather_report(city, API_KEY)
+        if report:
+            all_weather.append(report)
+
+    # Save once at the end
+    save_to_json(all_weather, OUTPUT_FILE)
+    print(f"Weather reports saved to {OUTPUT_FILE}")
