@@ -2,7 +2,7 @@ import requests
 import os
 import json
 
-API_KEY = os.getenv("WEATHER_API_KEY")  
+API_KEY = os.getenv("WEATHER_API_KEY")  # make sure this is set
 OUTPUT_FILE = "weather_report.json"
 
 def get_weather_report(city, api_key):
@@ -13,7 +13,7 @@ def get_weather_report(city, api_key):
     if response.status_code == 200:
         data = response.json()
         forecasts = []
-        for forecast in data["list"][:8]:  # next 24 hours
+        for forecast in data["list"][:40]:  # next 24 hours
             time = forecast["dt_txt"]
             temp = forecast["main"]["temp"]
             desc = forecast["weather"][0]["description"]
@@ -33,11 +33,10 @@ def save_to_json(data, filename):
         json.dump(data, f, indent=2)
 
 if __name__ == "__main__":
-    cities = ["London", "Paris", "New York", "Mumbai", "Tokyo","New Delhi","Bangalore",
-              "Guwahati","Kolkata","Chennai"]
+    cities = ["London", "Paris", "New York", "Mumbai", "Tokyo"]
     all_weather = []
 
-    for city in cities:
+    for city in cities: #fetches 1 day forecast for 5 cities and 1 day
         report = get_weather_report(city, API_KEY)
         if report:
             all_weather.append(report)

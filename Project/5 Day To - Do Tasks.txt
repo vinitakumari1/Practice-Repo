@@ -1,16 +1,30 @@
-Day 1 – Setup & API Integration
+Day 1 – Console application
 
-Choose OpenWeatherMap (free tier gives current + 5-day forecast).
-
-Create a simple FastAPI/Flask project.
-
-Add endpoint: /weather?city=London → fetch real-time data from OpenWeatherMap.
-
+Choose OpenWeatherMap 
+setup a console application
 Return JSON response directly (no DB yet).
 
-✅ Deliverable: A working API wrapper around OpenWeatherMap.
+✅ Deliverable: A working console application around OpenWeatherMap.
 
-📅 Day 2 – SQL Database Integration
+
+
+Day -2 - API setup
+
+
+API Setup with meaningful endpoints
+
+
+Probable end points - 
+1. healthcheck
+2. get 24 hr forecast for one city
+3. get 24 hr forecast for multiple cities
+4. save weather report
+5. get saved report
+6. delete saved report
+7. compare db performance
+
+
+📅 Day 3 – SQL Database Integration
 
 Setup PostgreSQL/MySQL (can run inside Docker).
 
@@ -22,7 +36,9 @@ Add endpoint: /weather/history?city=London.
 
 ✅ Deliverable: Structured storage & retrieval in SQL.
 
-📅 Day 3 – MongoDB Integration
+
+
+📅 Day 4 – MongoDB Integration
 
 Setup MongoDB (also via Docker).
 
@@ -40,9 +56,9 @@ Data flexibility
 
 ✅ Deliverable: Weather data stored in both SQL + Mongo for benchmarking.
 
-📅 Day 4 – Dockerize the System
+📅 Day 5 – Dockerize the System
 
-Write Dockerfile for the FastAPI/Flask app.
+Write Dockerfile for the FastAPI app.
 
 Use docker-compose.yml to run:
 
@@ -54,7 +70,7 @@ MongoDB container
 
 ✅ Deliverable: One command (docker-compose up) runs the full stack.
 
-📅 Day 5 – Performance Benchmark + Extensions
+📅 Day 6 – Performance Benchmark + Extensions
 
 Benchmark SQL vs Mongo queries:
 
