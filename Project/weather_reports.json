@@ -1,0 +1,47 @@
+{
+  "Bangalore": {
+    "message": "Fetched 1 day forecast for Bangalore",
+    "forecasts": [
+      {
+        "time": "2025-08-20 18:00:00",
+        "temperature": 21.23,
+        "description": "few clouds"
+      },
+      {
+        "time": "2025-08-20 21:00:00",
+        "temperature": 19.89,
+        "description": "few clouds"
+      },
+      {
+        "time": "2025-08-21 00:00:00",
+        "temperature": 18.46,
+        "description": "scattered clouds"
+      },
+      {
+        "time": "2025-08-21 03:00:00",
+        "temperature": 21.06,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-21 06:00:00",
+        "temperature": 26.18,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-21 09:00:00",
+        "temperature": 28.53,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-21 12:00:00",
+        "temperature": 26.1,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-21 15:00:00",
+        "temperature": 24.56,
+        "description": "overcast clouds"
+      }
+    ]
+  }
+}
