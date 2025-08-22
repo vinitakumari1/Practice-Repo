@@ -1,10 +1,17 @@
-from fastapi import APIRouter, FastAPI, HTTPException
+from fastapi import APIRouter, FastAPI, HTTPException,Depends
 from api.models import CitiesRequest, SaveRequest
 from api.services import fetch_weather, load_reports, save_reports
 
 
+from db.mongo_db import weather_collection
+import datetime
+import time
+
 
 router = APIRouter()
+
+
+
 
 @router.get("/")
 def root():
@@ -44,3 +51,35 @@ def delete_report(city: str):
         save_reports(reports)
         return {"message": f"Report for {city} deleted"}
     raise HTTPException(status_code=404, detail=f"No report found for {city}")
+
+
+
+
+@router.post("/weather/save/{city}")
+def save_weather(city: str):
+    # Fetch from API
+    from api.services import fetch_weather
+    data = fetch_weather(city)          # full dict
+    forecasts = data["forecasts"]       # extract the list
+
+    results = []
+    for f in forecasts:
+        time = datetime.datetime.strptime(f["time"], "%Y-%m-%d %H:%M:%S")
+        temp = f["temperature"]         # correct key
+        desc = f["description"]
+
+     
+
+        # ✅ Save to Mongo
+        mongo_doc = {
+            "city": city,
+            "time": time,
+            "temperature": temp,
+            "description": desc
+        }
+        weather_collection.insert_one(mongo_doc)
+
+        results.append(mongo_doc)
+
+    return {"message": f"Saved forecast for {city}", "records": len(results)}
+
