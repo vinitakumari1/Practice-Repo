@@ -2,16 +2,22 @@ from fastapi import APIRouter, FastAPI, HTTPException,Depends
 from api.models import CitiesRequest, SaveRequest
 from api.services import fetch_weather, load_reports, save_reports
 
-
+from db.sql_db import SessionLocal
+from db_models.sql_model import WeatherForecast
 from db.mongo_db import weather_collection
 import datetime
 import time
-
+from sqlalchemy.orm import Session
 
 router = APIRouter()
 
 
-
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 @router.get("/")
 def root():
@@ -52,11 +58,8 @@ def delete_report(city: str):
         return {"message": f"Report for {city} deleted"}
     raise HTTPException(status_code=404, detail=f"No report found for {city}")
 
-
-
-
 @router.post("/weather/save/{city}")
-def save_weather(city: str):
+def save_weather(city: str, db: Session = Depends(get_db)):
     # Fetch from API
     from api.services import fetch_weather
     data = fetch_weather(city)          # full dict
@@ -68,7 +71,11 @@ def save_weather(city: str):
         temp = f["temperature"]         # correct key
         desc = f["description"]
 
-     
+        # ✅ Save to SQL
+        sql_entry = WeatherForecast(
+            city=city, time=time, temperature=temp, description=desc
+        )
+        db.add(sql_entry)
 
         # ✅ Save to Mongo
         mongo_doc = {
@@ -81,5 +88,25 @@ def save_weather(city: str):
 
         results.append(mongo_doc)
 
-    return {"message": f"Saved forecast for {city}", "records": len(results)}
+    db.commit()
+    return {"message": f"Saved 1 day forecast for {city}", "records": len(results)}
 
+
+@router.get("/benchmark/{city}")
+def benchmark(city: str, db: Session = Depends(get_db)):
+    # SQL Query Benchmark
+    start = time.time()
+    sql_data = db.query(WeatherForecast).filter(WeatherForecast.city == city).all()
+    sql_time = time.time() - start
+
+    # MongoDB Query Benchmark
+    start = time.time()
+    mongo_data = list(weather_collection.find({"city": city}))
+    mongo_time = time.time() - start
+
+    return {
+        "sql_time": f"{sql_time:.6f} sec",
+        "mongo_time": f"{mongo_time:.6f} sec",
+        "sql_records": len(sql_data),
+        "mongo_records": len(mongo_data)
+    }

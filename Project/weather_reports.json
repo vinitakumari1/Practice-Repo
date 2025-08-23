@@ -3,43 +3,43 @@
     "message": "Fetched 1 day forecast for Bangalore",
     "forecasts": [
       {
-        "time": "2025-08-22 09:00:00",
-        "temperature": 26.03,
-        "description": "moderate rain"
-      },
-      {
-        "time": "2025-08-22 12:00:00",
-        "temperature": 25.73,
-        "description": "moderate rain"
-      },
-      {
-        "time": "2025-08-22 15:00:00",
-        "temperature": 25.16,
-        "description": "moderate rain"
-      },
-      {
-        "time": "2025-08-22 18:00:00",
-        "temperature": 21.46,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-22 21:00:00",
-        "temperature": 19.9,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-23 00:00:00",
-        "temperature": 26.65,
-        "description": "moderate rain"
-      },
-      {
-        "time": "2025-08-23 03:00:00",
-        "temperature": 21.41,
-        "description": "light rain"
-      },
-      {
         "time": "2025-08-23 06:00:00",
-        "temperature": 24.63,
+        "temperature": 25.12,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-23 09:00:00",
+        "temperature": 27,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-23 12:00:00",
+        "temperature": 27.37,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-23 15:00:00",
+        "temperature": 25.74,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-23 18:00:00",
+        "temperature": 20.97,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-23 21:00:00",
+        "temperature": 20.35,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-24 00:00:00",
+        "temperature": 19.58,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-24 03:00:00",
+        "temperature": 21.64,
         "description": "overcast clouds"
       }
     ]
