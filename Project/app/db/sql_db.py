@@ -11,3 +11,9 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
+
+
+# ✅ Add this to create all tables if they don't exist
+def init_db():
+    import app.db_models.sql_model  # import your models here so Base knows them
+    Base.metadata.create_all(bind=engine)

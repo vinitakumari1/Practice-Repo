@@ -1,10 +1,10 @@
 from fastapi import APIRouter, FastAPI, HTTPException,Depends
-from api.models import CitiesRequest, SaveRequest
-from api.services import fetch_weather, load_reports, save_reports
+from app.api.models import CitiesRequest, SaveRequest
+from app.api.services import fetch_weather, load_reports, save_reports
 
-from db.sql_db import SessionLocal
-from db_models.sql_model import WeatherForecast
-from db.mongo_db import weather_collection
+from app.db.sql_db import SessionLocal
+from app.db_models.sql_model import WeatherForecast
+from app.db.mongo_db import weather_collection
 import datetime
 import time
 from sqlalchemy.orm import Session
@@ -21,7 +21,7 @@ def get_db():
 
 @router.get("/")
 def root():
-    return {"message": "✅ Weather API is running"}
+    return {"message": "Weather API is running"}
 
 @router.get("/weather/{city}")
 def get_weather(city: str):
@@ -60,36 +60,44 @@ def delete_report(city: str):
 
 @router.post("/weather/save/{city}")
 def save_weather(city: str, db: Session = Depends(get_db)):
-    # Fetch from API
-    from api.services import fetch_weather
+    from app.api.services import fetch_weather
     data = fetch_weather(city)          # full dict
     forecasts = data["forecasts"]       # extract the list
 
     results = []
+    sql_entries = []
+    mongo_docs = []
+
     for f in forecasts:
         time = datetime.datetime.strptime(f["time"], "%Y-%m-%d %H:%M:%S")
-        temp = f["temperature"]         # correct key
+        temp = f["temperature"]
         desc = f["description"]
 
-        # ✅ Save to SQL
-        sql_entry = WeatherForecast(
-            city=city, time=time, temperature=temp, description=desc
+        # ✅ Prepare SQL entries
+        sql_entries.append(
+            WeatherForecast(city=city, time=time, temperature=temp, description=desc)
         )
-        db.add(sql_entry)
 
-        # ✅ Save to Mongo
-        mongo_doc = {
+        # ✅ Prepare Mongo docs
+        mongo_docs.append({
             "city": city,
             "time": time,
             "temperature": temp,
             "description": desc
-        }
-        weather_collection.insert_one(mongo_doc)
+        })
 
-        results.append(mongo_doc)
-
+    # Bulk insert into SQL
+    db.add_all(sql_entries)
     db.commit()
-    return {"message": f"Saved 1 day forecast for {city}", "records": len(results)}
+
+    # Bulk insert into Mongo
+    if mongo_docs:
+        weather_collection.insert_many(mongo_docs)
+
+    return {
+        "message": f"Saved 1 day forecast for {city}",
+        "records": len(forecasts)
+    }
 
 
 @router.get("/benchmark/{city}")

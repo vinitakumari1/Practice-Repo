@@ -1,16 +1,27 @@
 import os
 from fastapi import FastAPI
-from api.weather_router import router as weather_router
-from db.sql_db import Base, engine
-from db_models.sql_model import WeatherForecast
+from contextlib import asynccontextmanager
 
-Base.metadata.create_all(bind=engine)
-
-API_KEY = os.getenv("WEATHER_API_KEY") 
+from app.api.weather_router import router as weather_router
+from app.db.sql_db import Base, engine, init_db
+API_KEY = os.getenv("WEATHER_API_KEY")
 
 
-app = FastAPI (title = "Weather Forecast Management")
-app.include_router (weather_router)
+# --- Lifespan handler ---
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: initialize DB
+    Base.metadata.create_all(bind=engine)
+    init_db()
+    yield
+    # Shutdown: (optional cleanup if needed)
+
+
+app = FastAPI(title="Weather Forecast Management", lifespan=lifespan)
+app.include_router(weather_router)
+
+
+
 
 
 

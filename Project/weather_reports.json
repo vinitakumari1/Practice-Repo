@@ -3,43 +3,133 @@
     "message": "Fetched 1 day forecast for Bangalore",
     "forecasts": [
       {
-        "time": "2025-08-23 06:00:00",
-        "temperature": 25.12,
+        "time": "2025-08-24 12:00:00",
+        "temperature": 28.44,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-24 15:00:00",
+        "temperature": 27.85,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-24 18:00:00",
+        "temperature": 26.18,
         "description": "overcast clouds"
       },
       {
-        "time": "2025-08-23 09:00:00",
-        "temperature": 27,
+        "time": "2025-08-24 21:00:00",
+        "temperature": 25.8,
         "description": "overcast clouds"
       },
       {
-        "time": "2025-08-23 12:00:00",
-        "temperature": 27.37,
+        "time": "2025-08-25 00:00:00",
+        "temperature": 19.57,
         "description": "overcast clouds"
       },
       {
-        "time": "2025-08-23 15:00:00",
-        "temperature": 25.74,
+        "time": "2025-08-25 03:00:00",
+        "temperature": 21.93,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-25 06:00:00",
+        "temperature": 26.32,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-25 09:00:00",
+        "temperature": 27.96,
+        "description": "overcast clouds"
+      }
+    ]
+  },
+  "Pune": {
+    "message": "Fetched 1 day forecast for Pune",
+    "forecasts": [
+      {
+        "time": "2025-08-24 12:00:00",
+        "temperature": 24.76,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-24 15:00:00",
+        "temperature": 22.99,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-24 18:00:00",
+        "temperature": 21.56,
+        "description": "broken clouds"
+      },
+      {
+        "time": "2025-08-24 21:00:00",
+        "temperature": 21.3,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-25 00:00:00",
+        "temperature": 22.08,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-25 03:00:00",
+        "temperature": 23,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-25 06:00:00",
+        "temperature": 24.58,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-08-25 09:00:00",
+        "temperature": 24.02,
+        "description": "broken clouds"
+      }
+    ]
+  },
+  "Nagpur": {
+    "message": "Fetched 1 day forecast for Nagpur",
+    "forecasts": [
+      {
+        "time": "2025-08-24 12:00:00",
+        "temperature": 26.6,
         "description": "light rain"
       },
       {
-        "time": "2025-08-23 18:00:00",
-        "temperature": 20.97,
+        "time": "2025-08-24 15:00:00",
+        "temperature": 25.33,
         "description": "light rain"
       },
       {
-        "time": "2025-08-23 21:00:00",
-        "temperature": 20.35,
+        "time": "2025-08-24 18:00:00",
+        "temperature": 26.03,
         "description": "light rain"
       },
       {
-        "time": "2025-08-24 00:00:00",
-        "temperature": 19.58,
-        "description": "overcast clouds"
+        "time": "2025-08-24 21:00:00",
+        "temperature": 23.64,
+        "description": "light rain"
       },
       {
-        "time": "2025-08-24 03:00:00",
-        "temperature": 21.64,
+        "time": "2025-08-25 00:00:00",
+        "temperature": 24.15,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-25 03:00:00",
+        "temperature": 23.12,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-25 06:00:00",
+        "temperature": 24.31,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-08-25 09:00:00",
+        "temperature": 23.61,
         "description": "overcast clouds"
       }
     ]
