@@ -93,44 +93,44 @@
     "message": "Fetched 1 day forecast for Nagpur",
     "forecasts": [
       {
-        "time": "2025-08-24 12:00:00",
-        "temperature": 26.6,
+        "time": "2025-09-05 12:00:00",
+        "temperature": 27.36,
+        "description": "moderate rain"
+      },
+      {
+        "time": "2025-09-05 15:00:00",
+        "temperature": 25.49,
         "description": "light rain"
       },
       {
-        "time": "2025-08-24 15:00:00",
-        "temperature": 25.33,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-24 18:00:00",
-        "temperature": 26.03,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-24 21:00:00",
-        "temperature": 23.64,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-25 00:00:00",
-        "temperature": 24.15,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-25 03:00:00",
-        "temperature": 23.12,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-25 06:00:00",
-        "temperature": 24.31,
-        "description": "light rain"
-      },
-      {
-        "time": "2025-08-25 09:00:00",
-        "temperature": 23.61,
+        "time": "2025-09-05 18:00:00",
+        "temperature": 23.65,
         "description": "overcast clouds"
+      },
+      {
+        "time": "2025-09-05 21:00:00",
+        "temperature": 23.42,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-09-06 00:00:00",
+        "temperature": 23.38,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-09-06 03:00:00",
+        "temperature": 23.8,
+        "description": "overcast clouds"
+      },
+      {
+        "time": "2025-09-06 06:00:00",
+        "temperature": 26.91,
+        "description": "light rain"
+      },
+      {
+        "time": "2025-09-06 09:00:00",
+        "temperature": 28.23,
+        "description": "moderate rain"
       }
     ]
   }
